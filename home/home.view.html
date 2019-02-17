@@ -1,0 +1,231 @@
+
+<head>
+    <title>
+        Home Page 
+    </title>
+    <style>
+     .centerClass{
+         text-align:right;
+     }
+     .leftClass{
+         text-align:left;
+     }
+    </style>
+</head>
+
+
+<body  ng-controller="HomeController">
+    <nav ng-init="onloadFun()"  class="navbar navbar-light bg-light justify-content-between" style="margin-top:-4%">
+        <a class="navbar-brand">Hi {{vm.user.firstName}}!</a>
+        <div class="col-md-8">
+            <p class="btn btn-outline-success" style="padding-left:100%"><a href="#!/login" class="btn btn-primary">Logout</a></p>
+        </div>
+    </nav>
+    <h4 style="text-align:left"> Intersting Things!!!</h4>
+    <hr>
+
+
+    <div class="row mt-5">
+        <div ng-repeat="woman in women">
+            <div class="col-md-4" ng-if="woman.city == vm.user.city">
+                <!--Card-->
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{woman.image_url}}" alt="{{woman.name}}">
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">{{woman.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{woman.field}}</h5> <br> {{woman.job}}</p>
+                        <button ng-click="setInterstingByUser(woman.name,woman.field,woman.image_url,vm.user.username)" class="btn btn-primary">Intersting!!</button>
+                    </div>
+                </div>
+                <!--/.Card-->
+            </div>
+        </div>
+    </div>
+    <br>
+    <h4 style="text-align: left; font-style: normal; color: black; text-decoration:underline">Recommendation List</h4>
+    <hr />
+
+    <div class="row mt-5">
+        <div ng-repeat="Recommendation in Recommendation track by $index">
+            <div class="col-md-4">
+                <!--Card-->
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{Recommendation.image_url}}" alt="{{Recommendation.name}}">
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">{{Recommendation.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{Recommendation.field}}</h5> <br> {{Recommendation.job}}</p>
+
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        </div>
+    <div ng-if="CheckFood">
+        <!--Title-->
+        <div ng-repeat="FoodKH in FoodKH track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{FoodKH.image_url}}" alt="{{FoodKH.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{FoodKH.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{FoodKH.field}}</h5> <br> {{FoodKH.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="CheckArchitecture">
+        <!--Title-->
+        <div ng-repeat="ArchitectureKH in ArchitectureKH track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{ArchitectureKH.image_url}}" alt="{{ArchitectureKH.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ArchitectureKH.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{ArchitectureKH.field}}</h5> <br> {{ArchitectureKH.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="CheckArt">
+        <!--Title-->
+        <div ng-repeat="ArtKH in ArtKH track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{ArtKH.image_url}}" alt="{{ArtKH.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ArtKH.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{ArtKH.field}}</h5> <br> {{ArtKH.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="CheckNature">
+        <!--Title-->
+        <div ng-repeat="NatureKH in NatureKH track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{NatureKH.image_url}}" alt="{{NatureKH.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{NatureKH.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{NatureKH.field}}</h5> <br> {{NatureKH.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+                   
+                <!--madddddddddni-->
+
+
+    <div ng-if="CheckFoodM">
+        <!--Title-->
+        <div ng-repeat="FoodMadni in FoodMadni track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{FoodMadni.image_url}}" alt="{{FoodMadni.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{FoodMadni.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{FoodMadni.field}}</h5> <br> {{FoodMadni.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="CheckArchitectureM">
+        <!--Title-->
+        <div ng-repeat="ArchMadni in ArchMadni track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{ArchMadni.image_url}}" alt="{{ArchMadni.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ArchMadni.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{ArchMadni.field}}</h5> <br> {{ArchMadni.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="CheckArtM">
+        <!--Title-->
+        <div ng-repeat="ArtMdani in ArtMdani track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{ArtMdani.image_url}}" alt="{{ArtMdani.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ArtMdani.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{ArtMdani.field}}</h5> <br> {{ArtMdani.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="CheckNatureM">
+        <!--Title-->
+        <div ng-repeat="NatureMdani in NatureMdani track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{NatureMdani.image_url}}" alt="{{NatureMdani.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{NatureMdani.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{NatureMdani.field}}</h5> <br> {{NatureMdani.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="CheckEventM">
+        <!--Title-->
+        <div ng-repeat="EventMdani in EventMdani track by $index">
+            <div class="col-md-4">
+                <div class="card flexcss">
+                    <!--Card image-->
+                    <img class="img-fluid" height="100px" width="200px" ng-src="{{EventMdani.image_url}}" alt="{{EventMdani.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{EventMdani.name}}</h4>
+                        <!--Text-->
+                        <p class="card-text"> <h5>{{EventMdani.field}}</h5> <br> {{EventMdani.job}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+          
+     
+
+</body>
+
+    <!--<ul>
+        <li ng-repeat="user in vm.allUsers">
+            {{user.username}} ({{user.firstName}} {{user.lastName}})
+            - <a ng-click="vm.deleteUser(user.id)">Delete</a>
+        </li>
+    </ul>-->
